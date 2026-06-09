@@ -2,41 +2,41 @@
   {
     "question": "Which language is used to write Tkinter programs?",
     "options": ["Java", "Python", "C++", "JavaScript"],
-    "answer": 1
+    "answer": "Python"
   },
   {
     "question": "What does HTML stand for?",
     "options": ["Hyper Text Markup Language", "High Text Machine Language", "Hyper Transfer Markup Language", "Home Tool Markup Language"],
-    "answer": 0
+    "answer": "Hyper Text Markup Language"
   },
   {
     "question": "Which keyword is used to define a function in Python?",
     "options": ["function", "def", "define", "func"],
-    "answer": 1
+    "answer": "def"
   },
   {
     "question": "What symbol is used for comments in Python?",
     "options": ["//", "#", "/* */", "<!-- -->"],
-    "answer": 1
+    "answer": "#"
   },
   {
     "question": "Which data type is used for True/False values?",
     "options": ["int", "string", "boolean", "float"],
-    "answer": 2
+    "answer": "boolean"
   },
   {
     "question": "What does JSON stand for?",
     "options": ["JavaScript Object Notation", "Java Source Open Network", "Join Script Object Name", "Java Simple Object Node"],
-    "answer": 0
+    "answer": "JavaScript Object Notation"
   },
   {
     "question": "Which method is used to start a Tkinter application loop?",
     "options": ["run()", "start()", "mainloop()", "runloop()"],
-    "answer": 2
+    "answer": "mainloop()"
   },
   {
     "question": "Which symbol is used for assignment in Python?",
     "options": ["==", "=", ":=", "=>"],
-    "answer": 1
+    "answer": "="
   }
 ]

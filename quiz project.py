@@ -38,9 +38,6 @@ first_question = quiz.get_current_question()
 # Create window
 root = tk.Tk()
 root.title("Programming Quiz")
-root.geometry("500x300")
-root = tk.Tk()
-root.title("Programming Quiz")
 root.geometry("500x400")
 root.configure(bg="#f5f5f5")
 
@@ -124,7 +121,7 @@ def display_question():
 
 
 def display_options(options):
-    """Retrieves the options list and renders each one as a radio button."""
+    #Retrieves the options list and renders each one as a radio button.
     for option in options:
         radio = tk.Radiobutton(
             options_frame,
@@ -137,25 +134,34 @@ def display_options(options):
             activebackground="#f5f5f5",
             selectcolor="#d0f0e0",
             anchor="w",
-            command=lambda: check_selected()   # fires when user clicks
+            command=check_selected  # fires when user clicks
         )
         radio.pack(fill="x", pady=3)
 
+def check_answer(self,selected_answer):
+    correct_answer=self.data[self.current_question]["answer"]
+    if selected_answer==correct_answer:
+        self.score+=1
+        self.current_question+=1                                            
+
 
 def check_selected():
-    """Checks the selected answer and shows feedback."""
+    #Checks the selected answer and shows feedback
     selected = selected_option.get()
     if not selected or selected == "None":
         return
 
-    quiz.check_answer(selected)
+    
 
     # Show feedback
-    correct_answer = data[quiz.current_question - 1]["answer"]
+    correct_answer = data[quiz.current_question]["answer"]
     if selected == correct_answer:
         feedback_label.config(text=" Correct!", fg="#1D9E75")
     else:
         feedback_label.config(text=f"Wrong. Answer: {correct_answer}", fg="#993C1D")
+
+    #update score
+    quiz.check_answer(selected)
 
     # Disable all radio buttons after answering
     for widget in options_frame.winfo_children():
@@ -165,7 +171,7 @@ def check_selected():
 
 
 def next_question():
-    """Moves to the next question or shows final score."""
+    #Moves to the next question 
     if quiz.is_finished():
         show_results()
     else:
@@ -173,7 +179,7 @@ def next_question():
 
 
 def show_results():
-    """Clears the window and displays the final score."""
+    #Clears the window and displays the final score.
     for widget in root.winfo_children():
         widget.destroy()
 
@@ -191,13 +197,13 @@ def show_results():
     elif pct >= 50:
         msg = "Good effort, keep practicing!"
     else:
-        msg = "Keep studying, you'll get there!"
+        msg = "Keep studying!"
 
     tk.Label(root, text=msg, font=("Arial", 12, "italic"),
              bg="#f5f5f5", fg="#555555").pack(pady=10)
 
 
-# Step 4: Show the first question when app starts
+# Show the first question when app starts
 display_question()
 
 root.mainloop()
